@@ -8,10 +8,10 @@ async function loadPosts() {
 
     posts.forEach(post => {
       const postElement = document.createElement("div");
-      postElement.className = "bg-white p-4 rounded shadow";
+      postElement.className = "backdrop-blur-md bg-white/10 border border-white/20 shadow-lg rounded-xl p-6 transition transform hover:scale-105 hover:shadow-2xl";
       postElement.innerHTML = `
         <h3 class="text-lg font-bold">${post.title}</h3>
-        <p class="text-gray-700">${post.content}</p>
+        <p class="text-gray-500">${post.content}</p>
         <span class="text-sm text-gray-500">By ${post.author}</span>
         ${post.image ? `<img src="/uploads/${post.image}" class="mt-2 rounded">` : ""}
       `;
