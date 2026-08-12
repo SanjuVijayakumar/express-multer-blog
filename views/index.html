@@ -9,20 +9,22 @@
 <body class="bg-gray-100 text-gray-900">
 
   <!-- Navbar -->
-  <nav class="bg-blue-600 p-4 text-white">
-    <h1 class="text-2xl font-bold">My Blog</h1>
+  <nav class="bg-blue-600 p-4 text-white flex space-x-6">
+    <a href="/" class="text-xl font-bold hover:underline">Home</a>
+    <a href="/blog/create" class="text-xl hover:underline">Create Blog</a>
   </nav>
+
 
   <!-- Blog Container -->
   <main class="max-w-3xl mx-auto mt-6 p-4">
-    <h2 class="text-xl font-semibold mb-4">Create a Post</h2>
+    <!-- <h2 class="text-xl font-semibold mb-4">Create a Post</h2>
     <form id="postForm" class="space-y-4" enctype="multipart/form-data">
         <input type="text" name="title" placeholder="Title" class="border p-2 w-full" required>
         <textarea name="content" placeholder="Content" class="border p-2 w-full" required></textarea>
         <input type="text" name="author" placeholder="Author" class="border p-2 w-full">
         <input type="file" name="image" accept="image/*" class="border p-2 w-full">
         <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Submit</button>
-    </form>
+    </form> -->
 
     <h2 class="text-xl font-semibold mt-8 mb-4">Latest Posts</h2>
     <div id="posts" class="space-y-4"></div>
