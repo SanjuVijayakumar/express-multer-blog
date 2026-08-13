@@ -7,7 +7,7 @@ import postRoutes from "./routes/postRoutes.js";
 
 dotenv.config();
 const app = express();
-const PORT = process.env.PORT || 5003;
+const PORT = process.env.PORT || 3000;
 console.log("MONGO_URI:", process.env.MONGO_URI);
 
 const __filename = fileURLToPath(import.meta.url);
@@ -16,11 +16,11 @@ const __dirname = path.dirname(__filename);
 // middleware
 app.use(express.json());
 
-// serve uploads
-app.use("/uploads", express.static("uploads"));
-
 // serve static assets from views
-app.use(express.static(path.join(__dirname, "views")));
+app.use(express.static(path.join(__dirname, "public")));
+
+// serve uploads
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // routes for pages
 app.get("/", (req, res) => {

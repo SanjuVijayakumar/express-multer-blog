@@ -13,9 +13,9 @@ const postSchema = new mongoose.Schema({
     type: String, 
     default: "Anonymous" 
 },
-  image: { 
+  images: [{ 
     type: String 
-}, 
+}], //array of filename
 }, { timestamps: true }
 );
 

@@ -15,6 +15,20 @@ async function loadPosts() {
         <span class="text-sm text-gray-500">By ${post.author}</span>
         ${post.image ? `<img src="/uploads/${post.image}" class="mt-2 rounded">` : ""}
       `;
+      
+      // Handle multiple images here
+      if (post.images && post.images.length > 0) {
+        const gallery = document.createElement("div");
+        gallery.className = "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4";
+        post.images.forEach(img => {
+          const imgElement = document.createElement("img");
+          imgElement.src = `/uploads/${img}`;
+          imgElement.className = "w-full h-40 object-cover rounded-lg shadow-md hover:scale-105 transition-transform";
+          gallery.appendChild(imgElement);
+        });
+        postElement.appendChild(gallery);
+      }
+
       postsContainer.appendChild(postElement);
     });
   } catch (error) {
@@ -23,6 +37,13 @@ async function loadPosts() {
 }
 
 document.addEventListener("DOMContentLoaded", loadPosts);
+
+// Mulpitple file upload
+// if (post.images && post.images.length > 0) {
+//   post.images.forEach(img => {
+//     postElement.innerHTML += `<img src="/uploads/${img}" class="mt-2 rounded">`;
+//   });
+// }
 
 
 

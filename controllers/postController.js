@@ -14,9 +14,11 @@ export const getPosts = async (req, res) => {
 export const createPost = async (req, res) => {
   try {
     const { title, content, author } = req.body;
-    const image = req.file ? req.file.filename : null;
+    // const image = req.file ? req.file.filename : null;
+    const images = req.files ? req.files.map(file => file.filename) : [];
 
-    const newPost = new Post({ title, content, author, image });
+    // const newPost = new Post({ title, content, author, image });
+    const newPost = new Post({ title, content, author, images });
     await newPost.save();
 
     res.status(201).json(newPost);
